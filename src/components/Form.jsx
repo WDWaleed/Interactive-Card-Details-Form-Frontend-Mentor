@@ -17,6 +17,8 @@ const Form = ({
   setIsValidYear,
   isValidCVC,
   setIsValidCVC,
+  formVisible,
+  setFormVisible,
 }) => {
   const validateForm = () => {
     const cardNumberRegex = /^(\d{4} ){3}\d{4}$/;
@@ -32,11 +34,30 @@ const Form = ({
     year !== "" && year >= 1 && year <= 99
       ? setIsValidYear(true)
       : setIsValidYear(false);
+  };
 
+  const handleValidationAndSubmission = () => {
+    validateForm(); // Run the validation function
+
+    // Check the conditions after validation
+    if (
+      isValidCardNumber &&
+      isValidMonth &&
+      isValidYear &&
+      isValidCVC &&
+      name.trim() !== ""
+    ) {
+      setFormVisible(false);
+    }
   };
 
   return (
-    <form onSubmit={(e) => e.preventDefault()} className="mt-16  p-8 xl:max-w-lg xl:m-auto xl:float-right xl:grow">
+    <form
+      onSubmit={(e) => e.preventDefault()}
+      className={`${
+        formVisible ? "block" : "hidden"
+      } mt-16  p-8 xl:max-w-md xl:m-auto xl:float-right xl:grow`}
+    >
       <label
         htmlFor="name"
         className="inline-block text-[0.9rem] uppercase font-bold tracking-wider text-VeryDarkViolet w-full"
@@ -141,7 +162,7 @@ const Form = ({
       </div>
 
       <button
-        onClick={validateForm}
+        onClick={handleValidationAndSubmission}
         className="w-full bg-VeryDarkViolet p-4 mt-8 rounded-lg text-custom font-medium text-LightGrayishViolet transition-opacity duration-200 hover:opacity-[.95]  "
       >
         Confirm
