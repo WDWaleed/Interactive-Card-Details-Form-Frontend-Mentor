@@ -1,6 +1,7 @@
 import Cards from "./components/Cards";
-import Form from "./components/Form";
+// import Form from "./components/Form";
 import { useState } from "react";
+import Success from "./components/Success";
 
 function App() {
   const [name, setName] = useState("");
@@ -14,8 +15,9 @@ function App() {
   const [isValidYear, setIsValidYear] = useState(true);
   const [isValidCVC, setIsValidCVC] = useState(true);
 
+
   return (
-    <main className="max-w-[375px] lg:w-full mx-auto shadow-2xl">
+    <main className="max-w-[375px] mx-auto shadow-2xl flex flex-col  xl:w-full xl:flex-row xl:max-w-[1440px] xl:h-screen xl:max-h-[900px] xl:shadow-none">
       <Cards
         name={name}
         cardNumber={cardNumber}
@@ -23,7 +25,8 @@ function App() {
         year={year}
         CVC={CVC}
       />
-      <Form
+      <Success />
+      {/* <Form
         name={name}
         setName={setName}
         cardNumber={cardNumber}
@@ -42,7 +45,7 @@ function App() {
         setIsValidYear={setIsValidYear}
         isValidCVC={isValidCVC}
         setIsValidCVC={setIsValidCVC}
-      />
+      /> */}
     </main>
   );
 }

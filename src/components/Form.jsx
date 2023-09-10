@@ -36,7 +36,7 @@ const Form = ({
   };
 
   return (
-    <form onSubmit={(e) => e.preventDefault()} className="mt-16  p-8">
+    <form onSubmit={(e) => e.preventDefault()} className="mt-16  p-8 xl:max-w-lg xl:m-auto xl:float-right xl:grow">
       <label
         htmlFor="name"
         className="inline-block text-[0.9rem] uppercase font-bold tracking-wider text-VeryDarkViolet w-full"
@@ -62,7 +62,6 @@ const Form = ({
           value={cardNumber}
           onChange={(e) => {
             setCardNumber(e.target.value);
-            setIsValidCardNumber(true);
           }}
           maxLength={19}
           type="text"
@@ -111,7 +110,7 @@ const Form = ({
               !isValidMonth || !isValidYear ? "block" : "hidden"
             } text-errors font-medium`}
           >
-            Can't be blank
+            Can&apos;t be blank
           </p>
         </label>
         <label
@@ -136,7 +135,7 @@ const Form = ({
               !isValidCVC ? "block" : "hidden"
             } text-errors font-medium`}
           >
-            Can't be blank
+            Can&apos;t be blank
           </p>
         </label>
       </div>
