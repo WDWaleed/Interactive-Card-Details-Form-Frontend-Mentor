@@ -102,7 +102,7 @@ const Form = ({
       </p>
       <div className="flex gap-2">
         <label
-          htmlFor="expiry-date"
+          htmlFor="expiry-date-input"
           className=" basis-[55%] inline-block text-[0.9rem] uppercase font-bold tracking-wider  text-VeryDarkViolet w-full mt-4"
         >
           Exp. Date (MM/YY)
@@ -113,6 +113,7 @@ const Form = ({
                 setMonth(parseInt(e.target.value));
               }}
               type="number"
+              id="expiry-date-input"
               placeholder="MM"
               className="text-center basis-[50%] text-custom py-3 px-4 mt-1.5 border-2 border-LightGrayishViolet rounded-lg w-12 font-medium"
             />
@@ -135,7 +136,7 @@ const Form = ({
           </p>
         </label>
         <label
-          htmlFor="cvc"
+          htmlFor="cvc-input"
           className="basis-[45%] inline-block text-[0.9rem] uppercase font-bold tracking-wider  text-VeryDarkViolet w-full mt-4"
         >
           CVC
@@ -145,7 +146,7 @@ const Form = ({
               setCVC(e.target.value);
             }}
             maxLength={4}
-            id="cvc"
+            id="cvc-input"
             name="cvc"
             type="text"
             placeholder="e.g. 123"
