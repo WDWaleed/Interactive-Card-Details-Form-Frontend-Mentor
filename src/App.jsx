@@ -18,7 +18,7 @@ function App() {
   const [formVisible, setFormVisible] = useState(true);
 
   return (
-    <main className="max-w-[375px] mx-auto shadow-2xl flex flex-col  xl:w-full xl:flex-row xl:max-w-[1440px] xl:h-screen xl:max-h-[900px] xl:shadow-none">
+    <main className="mx-auto flex max-w-[375px] flex-col shadow-2xl  xl:h-screen xl:max-h-[900px] xl:w-full xl:max-w-[1440px] xl:flex-row xl:shadow-none">
       <Cards
         name={name}
         cardNumber={cardNumber}

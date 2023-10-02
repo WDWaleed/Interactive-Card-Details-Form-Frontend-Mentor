@@ -1,47 +1,53 @@
-
-
 const Cards = ({ name, cardNumber, month, year, CVC }) => {
   return (
-    <section className="bg-[url('/images/bg-main-mobile.png')] w-[375px] xl:bg-[url('/images/bg-main-desktop.png')] h-[240px] mx-auto relative xl:h-full xl:float-left xl:ml-0 xl:max-w-[483px] xl:basis-[483px] ">
+    <section className="relative mx-auto h-[240px] w-[375px] bg-[url('/images/bg-main-mobile.png')] xl:float-left xl:ml-0 xl:h-full xl:max-w-[483px] xl:basis-[483px] xl:bg-[url('/images/bg-main-desktop.png')] ">
       <div
         id="cardBack"
-        className=" absolute top-8 right-4 shadow-2xl xl:top-[360px] xl:right-0 xl:translate-x-1/2"
+        className=" absolute right-4 top-8 shadow-2xl xl:right-0 xl:top-[360px] xl:translate-x-1/2"
       >
-        <img src="images/bg-card-back.png" alt="Backside of Card" className="w-[300px] aspect-[1.83/1]"/>
+        <img
+          src="images/bg-card-back.png"
+          alt="Backside of Card"
+          className="aspect-[1.83/1] w-[300px]"
+        />
         <p
           id="cvc"
-          className="text-sm text-LightGrayishViolet absolute right-8 top-[4.4rem] font-medium"
+          className="absolute right-8 top-[4.4rem] text-sm font-medium text-LightGrayishViolet"
         >
           {CVC ? CVC : "000 "}
         </p>
       </div>
       <div
         id="cardFront"
-        className="w-[300px] aspect-[1.83/1] absolute -bottom-12 left-4 shadow-2xl  xl:top-40 xl:left-full xl:-translate-x-2/3"
+        className="absolute -bottom-12 left-4 aspect-[1.83/1] w-[300px] shadow-2xl xl:left-full xl:top-40 xl:-translate-x-2/3  "
       >
         <img
           src="images/card-logo.svg"
           alt="logo"
-          className="absolute top-4 left-5 w-[60px] h-[33px]"
+          className="absolute left-5 top-4 h-[33px] w-[60px]"
         />
-        <img src="images/bg-card-front.png" alt="Frontside of Card" className="w-[300px] aspect-[1.83/1]"/>
+        <img
+          src="images/bg-card-front.png"
+          alt="Frontside of Card"
+          className="aspect-[1.83/1] w-[300px]"
+        />
         <p
           id="cardNumber"
-          className="text-custom text-LightGrayishViolet absolute left-6 bottom-14 tracking-widest font-medium"
+          className="absolute bottom-14 left-6 text-custom font-medium tracking-widest text-LightGrayishViolet"
         >
           {cardNumber ? cardNumber : "0000 0000 0000 0000"}
         </p>
 
         <p
           id="cardholder-name"
-          className="text-sm text-LightGrayishViolet absolute left-6 bottom-5 font-medium"
+          className="absolute bottom-5 left-6 text-sm font-medium text-LightGrayishViolet"
         >
           {name ? name : "WDWaleed"}
         </p>
 
         <p
           id="expiry-date"
-          className="text-sm text-LightGrayishViolet absolute right-6 bottom-5 font-medium"
+          className="absolute bottom-5 right-6 text-sm font-medium text-LightGrayishViolet"
         >
           {month && year ? `${month}/${year}` : "00/00"}
         </p>

@@ -56,11 +56,11 @@ const Form = ({
       onSubmit={(e) => e.preventDefault()}
       className={`${
         formVisible ? "block" : "hidden"
-      } mt-16  p-8 xl:max-w-md xl:m-auto xl:float-right xl:grow`}
+      } mt-16  p-8 xl:float-right xl:m-auto xl:max-w-md xl:grow`}
     >
       <label
         htmlFor="name"
-        className="inline-block text-[0.9rem] uppercase font-bold tracking-wider text-VeryDarkViolet w-full"
+        className="inline-block w-full text-[0.9rem] font-bold uppercase tracking-wider text-VeryDarkViolet"
       >
         Cardholder Name
         <input
@@ -71,12 +71,12 @@ const Form = ({
           id="name"
           name="name"
           placeholder="e.g. WDWaleed"
-          className="text-custom py-3 px-4 mt-1.5 border-2 border-LightGrayishViolet rounded-lg w-full font-medium"
+          className="mt-1.5 w-full rounded-lg border-2 border-LightGrayishViolet px-4 py-3 text-custom font-medium"
         />
       </label>
       <label
         htmlFor="card-number"
-        className="inline-block text-[0.9rem] uppercase font-bold tracking-wider  text-VeryDarkViolet w-full mt-4"
+        className="mt-4 inline-block w-full text-[0.9rem] font-bold  uppercase tracking-wider text-VeryDarkViolet"
       >
         Card Number
         <input
@@ -89,24 +89,24 @@ const Form = ({
           id="card-number"
           name="card-number"
           placeholder="e.g. 1234 5678 9000 0000"
-          className="text-custom py-3 px-4 mt-1.5 border-2 border-LightGrayishViolet rounded-lg w-full font-medium"
+          className="mt-1.5 w-full rounded-lg border-2 border-LightGrayishViolet px-4 py-3 text-custom font-medium"
         />
       </label>
 
       <p
         className={`error-message ${
           !isValidCardNumber ? "block" : "hidden"
-        } text-errors font-medium`}
+        } font-medium text-errors`}
       >
         Wrong format
       </p>
       <div className="flex gap-2">
         <label
           htmlFor="expiry-date-input"
-          className=" basis-[55%] inline-block text-[0.9rem] uppercase font-bold tracking-wider  text-VeryDarkViolet w-full mt-4"
+          className=" mt-4 inline-block w-full basis-[55%] text-[0.9rem] font-bold  uppercase tracking-wider text-VeryDarkViolet"
         >
           Exp. Date (MM/YY)
-          <div className="flex gap-2 w-full">
+          <div className="flex w-full gap-2">
             <input
               value={month}
               onChange={(e) => {
@@ -115,7 +115,7 @@ const Form = ({
               type="number"
               id="expiry-date-input"
               placeholder="MM"
-              className="text-center basis-[50%] text-custom py-3 px-4 mt-1.5 border-2 border-LightGrayishViolet rounded-lg w-12 font-medium"
+              className="mt-1.5 w-12 basis-[50%] rounded-lg border-2 border-LightGrayishViolet px-4 py-3 text-center text-custom font-medium"
             />
             <input
               value={year}
@@ -124,20 +124,20 @@ const Form = ({
               }}
               type="number"
               placeholder="YY"
-              className="text-center basis-[50%] text-custom py-3 px-4 mt-1.5 border-2 border-LightGrayishViolet rounded-lg w-12 font-medium"
+              className="mt-1.5 w-12 basis-[50%] rounded-lg border-2 border-LightGrayishViolet px-4 py-3 text-center text-custom font-medium"
             />
           </div>
           <p
             className={`error-message ${
               !isValidMonth || !isValidYear ? "block" : "hidden"
-            } text-errors font-medium`}
+            } font-medium text-errors`}
           >
             Can&apos;t be blank
           </p>
         </label>
         <label
           htmlFor="cvc-input"
-          className="basis-[45%] inline-block text-[0.9rem] uppercase font-bold tracking-wider  text-VeryDarkViolet w-full mt-4"
+          className="mt-4 inline-block w-full basis-[45%] text-[0.9rem] font-bold  uppercase tracking-wider text-VeryDarkViolet"
         >
           CVC
           <input
@@ -150,12 +150,12 @@ const Form = ({
             name="cvc"
             type="text"
             placeholder="e.g. 123"
-            className="text-custom py-3 px-4 mt-1.5 border-2 border-LightGrayishViolet rounded-lg w-full font-medium"
+            className="mt-1.5 w-full rounded-lg border-2 border-LightGrayishViolet px-4 py-3 text-custom font-medium"
           />
           <p
             className={`error-message ${
               !isValidCVC ? "block" : "hidden"
-            } text-errors font-medium`}
+            } font-medium text-errors`}
           >
             Can&apos;t be blank
           </p>
@@ -164,7 +164,7 @@ const Form = ({
 
       <button
         onClick={handleValidationAndSubmission}
-        className="w-full bg-VeryDarkViolet p-4 mt-8 rounded-lg text-custom font-medium text-LightGrayishViolet transition-opacity duration-200 hover:opacity-[.95]  "
+        className="mt-8 w-full rounded-lg bg-VeryDarkViolet p-4 text-custom font-medium text-LightGrayishViolet transition-opacity duration-200 hover:opacity-[.95]  "
       >
         Confirm
       </button>
