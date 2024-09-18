@@ -11,7 +11,7 @@ const Success = ({ formVisible, setFormVisible }) => {
         We&apos;ve added your card details
       </p>
       <a
-        href="/"
+        href="https://wdwaleed.github.io/Interactive-Card-Details-Form-Frontend-Mentor/"
         className="mt-8 w-full rounded-lg bg-VeryDarkViolet p-4 text-center text-custom font-medium text-LightGrayishViolet transition-opacity duration-200 hover:opacity-[.95]"
       >
         Continue

@@ -14,6 +14,7 @@ function App() {
   const [isValidMonth, setIsValidMonth] = useState(true);
   const [isValidYear, setIsValidYear] = useState(true);
   const [isValidCVC, setIsValidCVC] = useState(true);
+  const [isValidName, setIsValidName] = useState(true); // Add this state
 
   const [formVisible, setFormVisible] = useState(true);
 
@@ -46,6 +47,8 @@ function App() {
         setIsValidYear={setIsValidYear}
         isValidCVC={isValidCVC}
         setIsValidCVC={setIsValidCVC}
+        isValidName={isValidName} // Pass this state
+        setIsValidName={setIsValidName} // Pass this setter
         formVisible={formVisible}
         setFormVisible={setFormVisible}
       />

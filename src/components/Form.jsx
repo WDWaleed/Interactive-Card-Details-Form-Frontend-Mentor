@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const Form = ({
   name,
   setName,
@@ -17,36 +19,48 @@ const Form = ({
   setIsValidYear,
   isValidCVC,
   setIsValidCVC,
+  isValidName,
+  setIsValidName,
   formVisible,
   setFormVisible,
 }) => {
+  const [showErrors, setShowErrors] = useState(false);
+
   const validateForm = () => {
     const cardNumberRegex = /^(\d{4} ){3}\d{4}$/;
-    setIsValidCardNumber(cardNumberRegex.test(cardNumber) ? true : false);
+    const isCardNumberValid = cardNumberRegex.test(cardNumber);
+    setIsValidCardNumber(isCardNumberValid);
 
     const cvcRegex = /^\d{3,4}$/;
-    setIsValidCVC(cvcRegex.test(CVC) && CVC.trim() !== "" ? true : false);
+    const isCVCValid = cvcRegex.test(CVC) && CVC.trim() !== "";
+    setIsValidCVC(isCVCValid);
 
-    month !== "" && month >= 1 && month <= 12
-      ? setIsValidMonth(true)
-      : setIsValidMonth(false);
+    const isMonthBlank = month === "";
+    const isMonthValid = !isMonthBlank && month >= 1 && month <= 12;
+    setIsValidMonth(isMonthValid);
 
-    year !== "" && year >= 1 && year <= 99
-      ? setIsValidYear(true)
-      : setIsValidYear(false);
+    const isYearBlank = year === "";
+    const isYearValid = !isYearBlank && year >= 1 && year <= 99;
+    setIsValidYear(isYearValid);
+
+    const isNameValid = name.trim() !== "";
+    setIsValidName(isNameValid);
+
+    return (
+      isCardNumberValid &&
+      isCVCValid &&
+      isMonthValid &&
+      isYearValid &&
+      isNameValid
+    );
   };
 
   const handleValidationAndSubmission = () => {
-    validateForm(); // Run the validation function
+    setShowErrors(true); // Show errors when the form is submitted
+    const isFormValid = validateForm(); // Run the validation function and get the result
 
     // Check the conditions after validation
-    if (
-      isValidCardNumber &&
-      isValidMonth &&
-      isValidYear &&
-      isValidCVC &&
-      name.trim() !== ""
-    ) {
+    if (isFormValid) {
       setFormVisible(false);
     }
   };
@@ -95,7 +109,7 @@ const Form = ({
 
       <p
         className={`error-message ${
-          !isValidCardNumber ? "block" : "hidden"
+          showErrors && !isValidCardNumber ? "block" : "hidden"
         } font-medium text-errors`}
       >
         Wrong format
@@ -129,10 +143,21 @@ const Form = ({
           </div>
           <p
             className={`error-message ${
-              !isValidMonth || !isValidYear ? "block" : "hidden"
+              showErrors && (month === "" || year === "") ? "block" : "hidden"
             } font-medium text-errors`}
           >
-            Can&apos;t be blank
+            Can't be blank
+          </p>
+          <p
+            className={`error-message ${
+              showErrors &&
+              ((month !== "" && (month < 1 || month > 12)) ||
+                (year !== "" && (year < 1 || year > 99)))
+                ? "block"
+                : "hidden"
+            } font-medium text-errors`}
+          >
+            Wrong format
           </p>
         </label>
         <label
@@ -154,10 +179,10 @@ const Form = ({
           />
           <p
             className={`error-message ${
-              !isValidCVC ? "block" : "hidden"
+              showErrors && !isValidCVC ? "block" : "hidden"
             } font-medium text-errors`}
           >
-            Can&apos;t be blank
+            Can't be blank
           </p>
         </label>
       </div>
